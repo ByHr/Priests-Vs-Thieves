@@ -1,13 +1,9 @@
-# cs252-lab06
-This is lab06 for CS252 (Group Project)
+# Priests Vs Thieves
+This is a personal continuation of a lab from Purdue's CS252 Systems Programming course.
 
-Project Members:
+   The original lab repository:
 
-		Andrew Berendsen - aberends@purdue.edu
-
-		Ramsey Ali - ali59@purdue.edu
-
-		Kyle Bentain - kbentain@purdue.edu
+	https://github.com/aberendsen18/cs252-lab06
   
   Project Name:
   
@@ -25,11 +21,13 @@ Project Members:
     -The user with the most points win
     -In the case of a tie, everyone loses (this is still to be determined)
   
-  Technologies:
+  Tools Used:
   
-    -HTML5
     -NodeJS (incl. modules such as express, jade)
     -MongoDB
+    -HTML5 w/ Bootstrap
+    -CSS
+    -Pingendo 4.0
     
 Project Idea Credit:
 
