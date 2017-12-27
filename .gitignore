@@ -4,7 +4,6 @@
 package-lock.json
 
 #Folders
-node_modules/
-nodetest2/node_modules/
-nodetest2/data/
-data/
+node_modules/*
+nodetest2/node_modules/*
+nodetest2/data/*
