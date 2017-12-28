@@ -13,6 +13,9 @@ var db;
 // Misc.
 var index = require('./routes/index');
 var users = require('./routes/users');
+//Function global variables
+var attempt = 0;
+var max_attempt = 5;
 
 var app = express();
 app.disable('etag');
@@ -31,8 +34,12 @@ dbClient.connect(('mongodb://' + url), function(err, database) {
     console.log("  Priests Vs Thieves PRE-ALPHA  ");
     console.log("================================")
    db = monk(url);
+   database.close();
   }
+
 });
+
+setInterval(checkTimeout, 10000);
 
 
 // view engine setup
@@ -72,5 +79,38 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//Functions
+
+function checkTimeout() {
+  dbClient.connect(('mongodb://' + url), function(err, database) {
+    if (err) {
+      attempt++;
+      if (attempt > max_attempt) {
+        console.log("================================")
+        console.log(" Error: MongoDB connection lost ");
+        console.log("     !SERVER SHUTTING DOWN!     ")
+        console.log("================================")
+        process.exit();
+      }
+      console.log("================================")
+      console.log(" Error: MongoDB connection lost ");
+      if (attempt < max_attempt) {
+        console.log("           Attempt #" + attempt + "           ");
+      } else {
+        console.log("          LAST ATTEMPT          ")
+      }
+      console.log("================================")
+    } else {
+      if (attempt != 0) {
+        console.log("================================")
+        console.log("   Connection re-established!   ")
+        console.log("================================")
+      }
+      attempt = 0;
+      database.close();
+    }
+  });
+}
 
 module.exports = app;
