@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
 
 /* GET lobby page. */
 router.get('/lobby', function(req, res, next) {
-  console.log(req.cookies.user);
   res.render('lobby', { title: 'Lobby', user: req.cookies.user});
 });
 
@@ -19,7 +18,12 @@ router.get('/create', function(req, res, next) {
 
 /* GET game page. */
 router.get('/game', function(req, res, next) {
-  res.render('game', { title: 'Play the Game' });
+  res.render('game', { title: 'Play the Game', fullName: req.cookies.fullName, points: req.cookies.points, round: req.cookies.round});
+});
+
+/* GET game over page. */
+router.get('/gameover', function(req, res, next) {
+  res.render('gameover', { title: 'Game Over' });
 });
 
 module.exports = router;
