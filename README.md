@@ -56,6 +56,22 @@ Install Instructions:
 
       HOW TO ACCESS SERVER
       1) go to localhost:3000
+      
+To-do List:
+
+      Note: List below is not in any specific order
+
+      1) Migrate CSS files from Google Drive to a self-hosted Rasberry Pi
+      2) Add email authentication
+      3) Add password hashing
+      4) Create CSS for lobby
+      5) Create CSS for profile page
+      6) Create CSS for game
+      7) Create CSS for leaderboard
+      8) Fix game logic
+      9) Add ability for player avatars
+      10) Add chat functionality
+ 
 
 Useful Links:
 
